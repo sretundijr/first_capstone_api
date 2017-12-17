@@ -54,7 +54,7 @@ const mockDataResultsFromSpotify = [
   },
 ];
 
-app.get('/spotify', (req, res) => {
+app.post('/spotify', (req, res) => {
 
   requestPromise(spotifyAuth)
     .then((auth) => {
