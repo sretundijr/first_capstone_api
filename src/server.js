@@ -6,12 +6,14 @@ const morgan = require('morgan');
 const requestPromise = require('request-promise');
 const base64 = require('base-64');
 const blueBirdPromise = require('bluebird');
+const bodyParser = require('body-parser');
 
 const { CLIENT_ORIGIN } = require('../config');
 
 const app = express();
 
 app.use(morgan('common'));
+app.use(bodyParser.json());
 
 app.use(cors({ origin: CLIENT_ORIGIN }));
 
