@@ -61,7 +61,7 @@ app.post('/spotify', (req, res) => {
   requestPromise(spotifyAuth)
     .then((auth) => {
       // replace mock with req body
-      const promises = mockDataResultsFromSpotify.map((item) => {
+      const promises = req.body.map((item) => {
         return requestPromise(spotifySearch(auth.access_token, item.Name));
       });
       return blueBirdPromise.all(promises);
